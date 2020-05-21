@@ -14,3 +14,22 @@
 
 (if (window-system)
 		(set-frame-size (selected-frame) 100 40))
+
+(global-set-key (kbd "C-<tab>")
+		'(lambda ()
+		   (interactive)
+		   (switch-to-buffer nil)))
+
+(global-set-key (kbd "C-`")
+		'(lambda ()
+		   (interactive)
+		   (set-mark-command nil)))
+
+(defun dummy-test ()
+	(interactive)
+	(message "dummy key"))
+	
+(add-to-list 'load-path "~/.emacs.d/elisp")
+
+(require 'my-evil-mode)
+(global-set-key [escape] 'my-evil-mode-enable)

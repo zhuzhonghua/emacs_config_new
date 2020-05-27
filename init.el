@@ -33,3 +33,11 @@
 
 (require 'my-evil-mode)
 (global-set-key [escape] 'my-evil-mode-enable)
+
+(defun smooth-scroll (increment)
+  (scroll-up increment) (sit-for 0.01)
+  (scroll-up increment) (sit-for 0.01)
+  (scroll-up increment) (sit-for 0.01))
+
+(global-set-key [wheel-down] '(lambda () (interactive) (smooth-scroll 1)))
+(global-set-key [wheel-up] '(lambda () (interactive) (smooth-scroll -1)))
